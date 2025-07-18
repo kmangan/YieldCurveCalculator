@@ -35,6 +35,20 @@ double yield = interpolationService.LinearInterpolation(bonds, 3.5);
 dotnet run
 ```
 
+## Running Tests
+
+To run the unit tests:
+
+```bash
+dotnet test
+```
+
+For more detailed test output:
+
+```bash
+dotnet test --verbosity detailed
+```
+
 ## Requirements
 
 - .NET 9.0 or later

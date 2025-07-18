@@ -39,31 +39,6 @@ class Program
             Console.WriteLine($"{bond.MaturityYears:F1}Y: {bond.Yield:F2}%");
         }
 
-        // Run some basic tests
-        Console.WriteLine("\n=== Basic Tests ===");
-        RunBasicTests(interpolationService, bonds);
     }
 
-    static void RunBasicTests(InterpolationService service, System.Collections.Generic.List<YieldCurveCalculator.Models.Bond> bonds)
-    {
-        Console.WriteLine("Running basic interpolation tests...");
-        
-        // Test 1: Exact match
-        var exactResult = service.LinearInterpolation(bonds, 5.0);
-        Console.WriteLine($"✓ Exact match (5Y): {exactResult:F2}% (Expected: 2.20%)");
-        
-        // Test 2: Interpolation
-        var interpResult = service.LinearInterpolation(bonds, 3.5);
-        Console.WriteLine($"✓ Interpolation (3.5Y): {interpResult:F2}% (Expected: 2.00%)");
-        
-        // Test 3: Extrapolation below
-        var extrapLow = service.LinearInterpolation(bonds, 1.0);
-        Console.WriteLine($"✓ Extrapolation below (1Y): {extrapLow:F2}% (Expected: 1.67%)");
-        
-        // Test 4: Extrapolation above
-        var extrapHigh = service.LinearInterpolation(bonds, 15.0);
-        Console.WriteLine($"✓ Extrapolation above (15Y): {extrapHigh:F2}% (Expected: 2.80%)");
-        
-        Console.WriteLine("\nAll basic tests completed successfully!");
-    }
 }
